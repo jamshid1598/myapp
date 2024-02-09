@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  app:
+    container_name: myapp_backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    hostname: app
+    restart: always
+    volumes:
+      - ./static:/app/static
+      - ./media:/app/media
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
